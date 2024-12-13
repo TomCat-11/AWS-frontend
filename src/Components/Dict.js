@@ -30,7 +30,7 @@ function Dict() {
     const fetchCategoryData = async (category) => {
         try {
           // Define the API endpoint
-          const endpoint = `http://13.53.129.50:7760/ItemDataByCategory/${category}`;
+          const endpoint = `https://13.53.129.50:443/ItemDataByCategory/${category}`;
           
           // Make a GET request to the API
           const response = await axios.get(endpoint);
@@ -59,7 +59,7 @@ function Dict() {
       const deleteItem = async (itemId) => {
         try {
             // API endpoint to delete the item
-            const response = await axios.delete(`http://13.53.129.50:7760/items/${itemId}`);
+            const response = await axios.delete(`https://13.53.129.50:443/items/${itemId}`);
             
             if (response.status === 200) {
                 alert("Item deleted successfully!");
@@ -232,7 +232,7 @@ function Dict() {
                         height: "250px",
                         objectFit: "contain", // Ensure the image is contained without distortion
                       }}
-                      src={`http://13.53.129.50:7760/${item.file}`}
+                      src={`https://13.53.129.50:443/${item.file}`}
                       alt="Item"
                     />
                   ) : (
@@ -248,7 +248,7 @@ function Dict() {
                       }}
                      
                     >
-                      <source src={`http://13.53.129.50:7760/${item.file}`} type="video/mp4" />
+                      <source src={`https://13.53.129.50:443/${item.file}`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   )}
