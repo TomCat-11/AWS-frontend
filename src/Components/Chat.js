@@ -66,7 +66,7 @@ function Chat() {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get(`http://13.53.129.50:7760/ItemData/${category}`, {
+      const response = await axios.get(`https://13.53.129.50:443/ItemData/${category}`, {
         params: { search: searchText },
       });
       setItems(response.data.items);
@@ -108,7 +108,7 @@ function Chat() {
       dataToSend.append("category", category);
       dataToSend.append("file", file);
 
-      const response = await axios.post('http://13.53.129.50:7760/NewItem', dataToSend, {
+      const response = await axios.post('https://13.53.129.50:443/NewItem', dataToSend, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
@@ -193,7 +193,7 @@ function Chat() {
                   {/* Conditionally render image or video */}
                   {['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg','webp'].includes(fileType) ? (
                     <img
-                      src={`http://13.53.129.50:7760/${item.file}`}
+                      src={`https://13.53.129.50:443/${item.file}`}
                       alt={item.text}
                       style={{ width: "300px",height:"60vh" }}
                     />
@@ -204,7 +204,7 @@ function Chat() {
                       loop
                       playsInline
                       style={{ width: "300px",height:"60vh" }}
-                      src={`http://13.53.129.50:7760/${item.file}`}
+                      src={`https://13.53.129.50:443/${item.file}`}
                     ></video>
                   ) : (
                     <Alert variant="warning">Unsupported file type</Alert>
