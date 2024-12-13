@@ -1,0 +1,27 @@
+/* Home.css */
+.app-container {
+    position: relative;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  .background-circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50%, rgba(255, 0, 0, 0.3), rgba(0, 0, 255, 0.3));
+    z-index: -1;
+  }
+  
+  .navbar-overlay {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .content-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
