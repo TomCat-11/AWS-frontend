@@ -48,7 +48,7 @@ const [newPassword, setNewPassword] = useState('');
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://13.53.129.50:7760/send-otp', { email });
+            const response = await axios.post('https://13.53.129.50:7760/send-otp', { email });
             setGeneratedOtp(response.data.otp); // Save the OTP sent by the server
             setMessage('OTP sent successfully');
             setMessageColor('green')
@@ -64,7 +64,7 @@ const [newPassword, setNewPassword] = useState('');
     e.preventDefault();
     
         try {
-            const response = await axios.post('http://13.53.129.50:7760/verify-otp', { enteredOtp: otp, generatedOtp });
+            const response = await axios.post('https://13.53.129.50:7760/verify-otp', { enteredOtp: otp, generatedOtp });
             console.log('Server response:', response); // Log the server response
             setMessage(response.data); // Show success message
             setMessageColor('green')
@@ -80,7 +80,7 @@ const [newPassword, setNewPassword] = useState('');
       e.preventDefault();
       
           try {
-              const response = await axios.post('http://13.53.129.50:7760/verify-otp', { enteredOtp: otp, generatedOtp });
+              const response = await axios.post('https://13.53.129.50:7760/verify-otp', { enteredOtp: otp, generatedOtp });
               console.log('Server response:', response); // Log the server response
               setMessage(response.data); // Show success message
               setMessageColor('green')
@@ -120,7 +120,7 @@ const [newPassword, setNewPassword] = useState('');
   const sendUserDatatoDB = async ()=>{
     if (validate()) {
       try {
-        const response = await axios.post('http://13.53.129.50:7760/Newuser', {
+        const response = await axios.post('https://13.53.129.50:7760/Newuser', {
           username: name,
           email,
           password,
@@ -148,7 +148,7 @@ const [newPassword, setNewPassword] = useState('');
 
 const handleLogin = async (email, password) => {
     try {
-        const response = await axios.post('http://13.53.129.50:7760/login', { email, password });
+        const response = await axios.post('https://13.53.129.50:7760/login', { email, password });
 
         if (response.data.status === "Success") {
             alert(response.data.msg)
@@ -192,7 +192,7 @@ const handleLogin = async (email, password) => {
 
     try {
       // API call to update password
-      const response = await axios.put('http://13.53.129.50:7760/update-password', {
+      const response = await axios.put('https://13.53.129.50:7760/update-password', {
         email,
         password: newPassword,
       });
